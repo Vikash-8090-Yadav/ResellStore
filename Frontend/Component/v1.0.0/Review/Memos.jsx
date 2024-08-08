@@ -44,18 +44,6 @@ const Memos = ({ state }) => {
     getTokens();
   }, [client]);
 
-  // const { contract } = state;
-
-  // useEffect(() => {
-  //   const memosMessage = async () => {
-  //     if (contract) {
-  //       const memos = await contract.getMemos();
-  //       setMemos(memos);
-  //     }
-  //   };
-  //   memosMessage();
-  // }, [contract]);
-
   return (
     <>
       <p className="mncnt" style={{ textAlign: "center", marginTop: "20px" }}>
