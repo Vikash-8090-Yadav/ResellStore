@@ -8,16 +8,16 @@ const Memos = ({ state }) => {
   const [tokens, setTokens] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
 
-  const QueryURL = " https://api.studio.thegraph.com/query/67475/firstsubstream/v0.0.1 ";
+  const QueryURL = "https://api.goldsky.com/api/public/project_clzavxt9w4yn0010ubohc9kee/subgraphs/resell-subgraph/0.0.1/gn";
 
   const query = `
     {
-      firstsbsDonations(first: 10, orderBy: id) {
-      from
-      id
-      message
-      name
-      timestamp
+      donations(first: 10, orderBy: id) {
+        name
+        message
+        from
+        id
+        timestamp
       }
     }
   `;
@@ -34,7 +34,7 @@ const Memos = ({ state }) => {
     const getTokens = async () => {
       try {
         const { data } = await client.query(query).toPromise();
-        setTokens(data.firstsbsDonations);
+        setTokens(data.donations);
         setIsLoading(false); // Data is loaded
       } catch (error) {
         console.error("Error fetching data:", error);
