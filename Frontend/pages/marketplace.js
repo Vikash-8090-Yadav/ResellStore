@@ -27,18 +27,15 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true); 
   const [tokens, setTokens] = useState([]);
 
-
-  // https://api.studio.thegraph.com/query/67475/firstsubstream/v0.0.1
-
   
-  const QueryURL = "https://api.studio.thegraph.com/query/67475/firstsubstream/v0.0.1 ";
+  const QueryURL = "https://api.goldsky.com/api/public/project_clzavxt9w4yn0010ubohc9kee/subgraphs/resell-subgraph/0.0.1/gn";
 
   let query = `
     {
-      firstsbsTokenItems {
-        token_uri
-      price
-      new_token_id
+      tokenItems {
+        tokenURI
+        price
+        newTokenId
       }
     }
   `;
@@ -57,7 +54,7 @@ export default function Home() {
     try {
       const { data } = await client.query(query).toPromise();
       // console.log(data.sbsticketTokenItems);
-      setTokens(data.firstsbsTokenItems);
+      setTokens(data.tokenItems);
       
       setIsLoading(false); // Data is loaded
       await loadNFTs();
