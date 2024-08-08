@@ -53,7 +53,7 @@ export default function Home() {
     
     try {
       const { data } = await client.query(query).toPromise();
-      // console.log(data.sbsticketTokenItems);
+    
       setTokens(data.tokenItems);
       
       setIsLoading(false); // Data is loaded
